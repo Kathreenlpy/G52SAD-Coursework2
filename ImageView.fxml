@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.control.*?>
@@ -7,18 +8,57 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.*?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="216.0" prefWidth="246.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ImageViewDemoController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="359.0" prefWidth="444.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ImageViewController">
   <children>
-    <ImageView fx:id="myImage" fitHeight="150.0" fitWidth="200.0" layoutX="24.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+    <ImageView fx:id="myImage" fitHeight="150.0" fitWidth="200.0" layoutX="120.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
       <image>
-        <Image url="@Dog.jpg" />
+        <Image url="@dog.jpg" />
       </image>
     </ImageView>
-    <RadioButton fx:id="dogRadioButton" layoutX="73.0" layoutY="184.0" mnemonicParsing="false" onAction="#dogRadioButtonListener" selected="true" text="Dog">
-      <toggleGroup>
-        <ToggleGroup fx:id="myToggleGroup" />
-      </toggleGroup>
-    </RadioButton>
-    <RadioButton fx:id="catRadioButton" layoutX="131.0" layoutY="184.0" mnemonicParsing="false" onAction="#catRadioButtonListener" text="Cat" toggleGroup="$myToggleGroup" />
+    
   </children>
+   <children>
+      <BorderPane prefHeight="367.0" prefWidth="450.0">
+         <top>
+            <VBox prefHeight="55.0" prefWidth="450.0" BorderPane.alignment="CENTER">
+               <children>
+                  <MenuBar prefHeight="25.0" prefWidth="435.0">
+                    <menus>
+                      <Menu mnemonicParsing="false" text="File">
+                        <items>
+                              <MenuItem mnemonicParsing="false" onAction="#openFile" text="Open" />
+                          <MenuItem mnemonicParsing="false" onAction="#closeFile" text="Exit" />
+                        </items>
+                      </Menu>
+                      <Menu mnemonicParsing="false" text="Edit">
+                        <items>
+                          <MenuItem mnemonicParsing="false" onAction="#rotateImageLeft" text="Rotate Left" />
+                              <MenuItem mnemonicParsing="false" onAction="#rotateImage" text="Rotate Right" />
+                              <MenuItem mnemonicParsing="false" onAction="#rotateImageMore" text="Rotate UpsideDown" />
+                              <MenuItem mnemonicParsing="false" onAction="#colorImageAdjust" text="Brighter" />
+                              <MenuItem mnemonicParsing="false" onAction="#imageDark" text="Darker" />
+                              <MenuItem mnemonicParsing="false" onAction="#ori" text="Reset" />
+                        </items>
+                      </Menu>
+                      <Menu mnemonicParsing="false" text="Help" />
+                    </menus>
+                  </MenuBar>
+               </children>
+            </VBox>
+         </top>
+         <center>
+            <VBox prefHeight="150.0" prefWidth="450.0" spacing="20.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#ZoomIn" text="Zoom In" />
+                  <Button mnemonicParsing="false" onAction="#ZoomOut" text="Zoom Out" />
+                  <Button mnemonicParsing="false" onAction="#rotateImageLeft" text="Rotate Left" />
+                  <Button mnemonicParsing="false" onAction="#rotateImage" text="Rotate Right" />
+                  <Button mnemonicParsing="false" onAction="#ori" text="Reset" />
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+     <Button layoutX="149.0" layoutY="289.0" onAction="#prevImage" text="Previous" />
+     <Button layoutX="270.0" layoutY="289.0" onAction="#nextImage" text="Next" />
+   </children>
 </AnchorPane>
